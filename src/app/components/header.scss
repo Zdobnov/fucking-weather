@@ -1,0 +1,14 @@
+.app-header {
+  height: $header-height;
+  border-bottom: 1px solid $color-primary;
+  @include flexbox();
+  @include justify-content(space-between);
+
+  &__title {
+    padding: 0 10px;
+    font-size: 1.6rem;
+    font-weight: $font-weight-light;
+    color: $color-primary;
+    line-height: $header-height - 1;
+  }
+}
