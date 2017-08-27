@@ -1,8 +1,10 @@
 /* COLOR */
+$white: #fff;
 $vermilion: #fa4b00;
 
 /* COLOR USAGE */
 $color-primary: $vermilion;
+$color-white: $white;
 
 /* FONT */
 $font-family-roboto: 'Roboto', sans-serif;
@@ -12,3 +14,4 @@ $font-weight-light: 300;
 
 /* SIZE */
 $header-height: 40px;
+$max-app-width: 520px;

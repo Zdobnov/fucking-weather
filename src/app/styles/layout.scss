@@ -12,4 +12,36 @@ html {
 
 body {
   font: $font-weight-light 1.6rem $font-family-roboto;
+  color: $color-primary;
+}
+
+.app-main {
+  padding: $header-height 10px 0;
+  max-width: $max-app-width;
+  margin: 0 auto;
+
+  &.today {
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(space-between);
+    min-height: calc(100vh - #{$header-height});
+  }
+}
+
+.weather-today {
+  padding: 24px 0 20px;
+  @include flexbox();
+
+  &__flex {
+    &--left {
+      @include flexbox();
+      @include flex(0, 0, 69%);
+      @include justify-content(space-between);
+      @include flex-direction(column);
+    }
+
+    &--right {
+      @include flex(1, 1, 31%);
+    }
+  }
 }

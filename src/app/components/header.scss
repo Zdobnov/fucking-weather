@@ -1,6 +1,12 @@
 .app-header {
   height: $header-height;
   border-bottom: 1px solid $color-primary;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: $color-white;
+  z-index: 1;
   @include flexbox();
   @include justify-content(space-between);
 

@@ -1,2 +1,8 @@
-/* COMPONENTS */
-@import './components/header';
+/* COMMON COMPONENTS */
+@import 'components/header';
+
+/* MAIN COMPONENTS */
+@import 'main/components/temperature';
+@import 'main/components/location';
+@import 'main/components/details';
+@import 'main/components/description';
