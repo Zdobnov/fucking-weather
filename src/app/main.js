@@ -21,7 +21,9 @@ export class Main extends Component {
                 />
             </div>
             <div className="weather-today__flex--right">
-              icons<br/>icons<br/>icons<br/>icons<br/>icons<br/>icons<br/>icons<br/>icons<br/>icons<br/>
+              icon
+              <span>and</span>
+              icon
             </div>
           </section>
           <Details/>

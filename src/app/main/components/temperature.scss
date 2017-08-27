@@ -1,5 +1,6 @@
 .weather-today {
   .temperature {
+    margin-bottom: 12px;
     @include flexbox();
 
     &__value {

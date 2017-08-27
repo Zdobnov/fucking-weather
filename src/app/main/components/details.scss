@@ -2,8 +2,6 @@
   padding: 20px 0;
 
   p {
-    &:not(:last-child) {
-      margin-top: 8px;
-    }
+    line-height: 1.75;
   }
 }
