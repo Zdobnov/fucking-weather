@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import Header from './components/header';
+import Header from '../components/header';
 
 import Temperature from './main/components/temperature';
 import Location from './main/components/location';
