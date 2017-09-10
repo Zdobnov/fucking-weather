@@ -5,22 +5,16 @@ const initialState = {
 export default function todoApp(state = initialState, action) {
   switch (action.type) {
     case 'INCREASE': {
-      return Object.assign(
-        {},
-        state,
-        {
-          value: state.value + 1
-        }
-      );
+      return {
+        ...state,
+        value: state.value + 1
+      };
     }
     case 'DECREASE': {
-      return Object.assign(
-        {},
-        state,
-        {
-          value: state.value - 1
-        }
-      );
+      return {
+        ...state,
+        value: state.value - 1
+      };
     }
     default: {
       return state;
