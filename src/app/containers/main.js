@@ -65,7 +65,7 @@ export class Main extends Component {
 
 const mapStateToProps = state => {
   return {
-    value: state.value
+    value: state.todoApp.value
   };
 };
 

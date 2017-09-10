@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, browserHistory} from 'react-router';
-import {createStore} from 'redux';
+import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
 
 import Main from './app/containers/main';
@@ -41,7 +41,10 @@ function todoApp(state = initialState, action) {
 }
 
 // store
-const store = createStore(todoApp);
+const rootReducer = combineReducers({
+  todoApp
+});
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
