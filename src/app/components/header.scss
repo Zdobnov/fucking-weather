@@ -5,8 +5,9 @@
   left: 0;
   right: 0;
   top: 0;
-  background: $color-white;
+  background: transparentize($color-white, .05);
   z-index: 1;
+  transition: all .3s ease;
   @include flexbox();
   @include justify-content(space-between);
 
@@ -20,7 +21,7 @@
 
   &__button {
     width: $header-height - 1;
-    height: 100%;
+    height: $header-height - 1;
     cursor: pointer;
     position: relative;
     @include flexbox();
@@ -51,5 +52,10 @@
         top: 4px;
       }
     }
+  }
+
+  &--opened {
+    height: 100%;
+    border-bottom-color: transparent;
   }
 }
