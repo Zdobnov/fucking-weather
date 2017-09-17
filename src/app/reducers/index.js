@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 
-import todoApp from './todoApp';
+import currentWeather from './currentWeather';
 
 export const rootReducer = combineReducers({
-  todoApp
+  currentWeather
 });

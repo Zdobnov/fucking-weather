@@ -1,19 +1,19 @@
 import axios from 'axios';
+import * as actionTypes from '../constants/actionTypes';
 
 export function getCurrentWeather() {
   return async dispatch => {
     try {
-      const KEY = 'a4244d101b7a43e6987175904171009';
-      const LINK = `http://api.apixu.com/v1/current.json?key=${KEY}&q=Paris`;
-      await axios.get(LINK).then(response => {
-        console.log(response);
-      }).catch(error => {
-        console.log(error);
-      });
+      const key = 'a4244d101b7a43e6987175904171009';
+      const link = `http://api.apixu.com/v1/current.json?key=${key}&q=Paris`;
+      const response = await axios.post(link);
 
-      dispatch({type: 'INCREASE'});
+      dispatch({
+        type: actionTypes.UPDATE_CURRENT_WEATHER,
+        current: response.data.current
+      });
     } catch (error) {
-      console.log('getCurrentWeather - error');
+      // console.log('getCurrentWeather - error');
       throw error;
     }
   };

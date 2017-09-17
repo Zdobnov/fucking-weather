@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import * as AppActions from './../actions/index';
-import * as MealActions from './main/actions/index';
 import Header from '../components/header';
 import Temperature from './main/components/temperature';
 import Location from './main/components/location';
@@ -13,25 +12,13 @@ import Description from './main/components/description';
 
 export class Main extends Component {
   static propTypes = {
-    value: PropTypes.number.isRequired,
-    mealActions: PropTypes.object.isRequired,
+    current: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired
   }
 
   constructor(props, context) {
     super(props, context);
-
-    this.handleIncrease = this.handleIncrease.bind(this);
-    this.handleDecrease = this.handleDecrease.bind(this);
     this.handleCall = this.handleCall.bind(this);
-  }
-
-  handleIncrease() {
-    this.props.mealActions.increase();
-  }
-
-  handleDecrease() {
-    this.props.mealActions.decrease();
   }
 
   handleCall() {
@@ -45,7 +32,7 @@ export class Main extends Component {
         <main className="app-main today">
           <section className="weather-today">
             <div className="weather-today__flex--left">
-              {this.props.value}
+              {this.props.current.temp_c}
               <Temperature/>
               <Location
                 location="Minsk, BY"
@@ -56,12 +43,7 @@ export class Main extends Component {
             </div>
             <div className="weather-today__flex--right">
               icon
-              <span
-                onClick={this.handleIncrease}
-                >+</span>
-              <span
-                onClick={this.handleDecrease}
-                >-</span>
+              --- HERE ---
               icon
             </div>
           </section>
@@ -75,14 +57,13 @@ export class Main extends Component {
 
 const mapStateToProps = state => {
   return {
-    value: state.todoApp.value
+    current: state.currentWeather.current
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    actions: bindActionCreators(AppActions, dispatch),
-    mealActions: bindActionCreators(MealActions, dispatch)
+    actions: bindActionCreators(AppActions, dispatch)
   };
 };
 
