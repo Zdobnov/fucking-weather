@@ -25,12 +25,14 @@ export default class Header extends Component {
           'app-header--opened': this.state.opened
         })}
         >
-        <h1 className="app-header__title">FuckingWeather</h1>
-        <div
-          className="app-header__button"
-          onClick={this.handleClick}
-          >
-          <span/>
+        <div className="app-header__wrapper">
+          <h1 className="app-header__title">FuckingWeather</h1>
+          <div
+            className="app-header__button"
+            onClick={this.handleClick}
+            >
+            <span/>
+          </div>
         </div>
       </header>
     );

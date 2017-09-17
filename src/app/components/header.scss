@@ -8,8 +8,15 @@
   background: transparentize($color-white, .05);
   z-index: 1;
   transition: all .3s ease;
-  @include flexbox();
-  @include justify-content(space-between);
+
+  &__wrapper {
+    height: 100%;
+    width: 100%;
+    max-width: $max-app-width;
+    margin: 0 auto;
+    @include flexbox();
+    @include justify-content(space-between);
+  }
 
   &__title {
     padding: 0 10px;
