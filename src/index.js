@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, browserHistory} from 'react-router';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
 
 import {rootReducer} from './app/reducers/index';
 import Main from './app/containers/main';
@@ -11,7 +12,7 @@ import Main from './app/containers/main';
 import './index.scss';
 
 // STORE
-const store = createStore(rootReducer);
+const store = compose(applyMiddleware(thunk))(createStore)(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
