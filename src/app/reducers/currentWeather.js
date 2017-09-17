@@ -1,15 +1,18 @@
 import * as actionTypes from '../constants/actionTypes';
 
 const initialState = {
-  current: {}
+  current: {},
+  location: {}
 };
 
 export default function currentWeather(state = initialState, action) {
   switch (action.type) {
     case actionTypes.UPDATE_CURRENT_WEATHER: {
+      const {current, location} = action.data;
       return {
         ...state,
-        current: action.current
+        current,
+        location
       };
     }
     default: {

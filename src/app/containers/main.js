@@ -13,6 +13,7 @@ import Description from './main/components/description';
 export class Main extends Component {
   static propTypes = {
     current: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired
   }
 
@@ -35,7 +36,7 @@ export class Main extends Component {
               {this.props.current.temp_c}
               <Temperature/>
               <Location
-                location="Minsk, BY"
+                location={this.props.location}
                 />
               <span
                 onClick={this.handleCall}
@@ -57,7 +58,8 @@ export class Main extends Component {
 
 const mapStateToProps = state => {
   return {
-    current: state.currentWeather.current
+    current: state.currentWeather.current,
+    location: state.currentWeather.location
   };
 };
 

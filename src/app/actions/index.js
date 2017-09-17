@@ -10,7 +10,7 @@ export function getCurrentWeather() {
 
       dispatch({
         type: actionTypes.UPDATE_CURRENT_WEATHER,
-        current: response.data.current
+        data: response.data
       });
     } catch (error) {
       // console.log('getCurrentWeather - error');
