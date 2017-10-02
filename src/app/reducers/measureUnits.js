@@ -1,4 +1,6 @@
-import * as actionTypes from '../constants/actionTypes';
+import {
+  SWITCH_UNITS
+} from '../constants/actionTypes';
 
 const initialState = {
   units: 'metric'
@@ -6,17 +8,10 @@ const initialState = {
 
 export default function measureUnits(state = initialState, action = {}) {
   switch (action.type) {
-    case actionTypes.SET_METRIC_UNITS: {
+    case SWITCH_UNITS: {
       return {
         ...state,
-        units: 'metric'
-      };
-    }
-
-    case actionTypes.SET_IMPERIAL_UNITS: {
-      return {
-        ...state,
-        units: 'imperial'
+        units: action.units
       };
     }
 

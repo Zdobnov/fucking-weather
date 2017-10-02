@@ -20,14 +20,9 @@ export function getCurrentWeather() {
   };
 }
 
-export function setMetricUnits() {
+export function switchUnits(units) {
+  // units === 'metric' || 'imperial'
   return dispatch => {
-    dispatch({type: type.SET_METRIC_UNITS});
-  };
-}
-
-export function setImperialUnits() {
-  return dispatch => {
-    dispatch({type: type.SET_IMPERIAL_UNITS});
+    dispatch({type: type.SWITCH_UNITS, units});
   };
 }

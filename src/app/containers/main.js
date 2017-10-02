@@ -37,12 +37,9 @@ export class Main extends Component {
   }
 
   handleSwitchUnits(units) {
+    // units === 'metric' || 'imperial'
     return () => {
-      if (units === 'metric') {
-        this.props.actions.setMetricUnits();
-      } else {
-        this.props.actions.setImperialUnits();
-      }
+      this.props.actions.switchUnits(units);
     };
   }
 

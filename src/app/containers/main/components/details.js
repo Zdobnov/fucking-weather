@@ -24,6 +24,12 @@ export default class Details extends Component {
       `${this.props.weather.vis_miles} mi`;
   }
 
+  renderWindSpeed() {
+    return this.props.units === 'metric' ?
+      `${this.props.weather.wind_kph} km/h` :
+      `${this.props.weather.wind_mph} mph`;
+  }
+
   render() {
     const {weather} = this.props;
 
@@ -34,7 +40,7 @@ export default class Details extends Component {
         <p>Humidity: <span>{weather.humidity}%</span></p>
         <p>Pressure:: <span>pressure_in or pressure_mb</span></p>
         <p>Average visibility: <span>{this.renderVisibility()}</span></p>
-        <p>Wind speed: <span>wind_kph or wind_mph</span></p>
+        <p>Wind speed: <span>{this.renderWindSpeed()}</span></p>
         <p>Wind direction: <span>{this.props.weather.wind_degree}</span></p>
       </section>
     );
