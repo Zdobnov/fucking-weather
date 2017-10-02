@@ -5,16 +5,15 @@ const initialState = {
   location: {}
 };
 
-export default function currentWeather(state = initialState, action) {
+export default function currentWeather(state = initialState, action = {}) {
   switch (action.type) {
     case actionTypes.UPDATE_CURRENT_WEATHER: {
-      const {current, location} = action.data;
       return {
         ...state,
-        current,
-        location
+        current: action.data.current
       };
     }
+
     default: {
       return state;
     }

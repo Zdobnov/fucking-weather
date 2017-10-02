@@ -8,18 +8,20 @@
   background: transparentize($color-white, .05);
   z-index: 1;
   transition: all .3s ease;
+  overflow: hidden;
 
   &__wrapper {
-    height: 100%;
     width: 100%;
     max-width: $max-app-width;
     margin: 0 auto;
-    @include flexbox();
-    @include justify-content(space-between);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
   }
 
   &__title {
-    padding: 0 10px;
+    padding: 0 10px 20px;
     font-size: 1.6rem;
     font-weight: $font-weight-light;
     color: $color-primary;
@@ -31,9 +33,9 @@
     height: $header-height - 1;
     cursor: pointer;
     position: relative;
-    @include flexbox();
-    @include justify-content(center);
-    @include align-items(center);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     span {
       height: 1px;
@@ -64,5 +66,17 @@
   &--opened {
     height: 100%;
     border-bottom-color: transparent;
+  }
+}
+
+.header-menu {
+  flex: 0 0 100%;
+
+  &__item {
+    padding: 6px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
   }
 }

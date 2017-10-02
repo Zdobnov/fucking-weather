@@ -10,6 +10,13 @@ html {
   font-size: 10px;
 }
 
+// input {
+//   &[type="radio"],
+//   &[type="checkbox"] {
+//     display: none;
+//   }
+// }
+
 body {
   font: $font-weight-light 1.6rem $font-family-roboto;
   color: $color-primary;
@@ -30,21 +37,28 @@ body {
 
 .weather-today {
   padding: 24px 0 20px;
-  @include flexbox();
+  display: flex;
 
   &__flex {
     &--left {
-      @include flexbox();
-      @include flex(0, 0, 69%);
-      @include justify-content(space-between);
-      @include flex-direction(column);
+      display: flex;
+      flex: 0 0 69%;
+      justify-content: space-between;
+      flex-direction: column;
     }
 
     &--right {
-      @include flexbox();
-      @include flex-direction(column);
-      @include flex(1, 1, 31%);
-      @include align-items(center);
+      display: flex;
+      flex-direction: column;
+      flex: 0 0 31%;
+      align-items: center;
     }
   }
+}
+
+.custom-radio {
+  height: 16px;
+  width: 16px;
+  border: 1px solid $color-primary;
+  border-radius: 50%;
 }

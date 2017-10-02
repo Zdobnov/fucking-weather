@@ -1,7 +1,16 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 export default class Header extends Component {
+  static propTypes = {
+    onSwitchUnits: PropTypes.func.isRequired
+  }
+
+  static defaultPropsTypes = {
+    onSwitchUnits: () => {}
+  }
+
   constructor(props, context) {
     super(props, context);
 
@@ -33,6 +42,20 @@ export default class Header extends Component {
             >
             <span/>
           </div>
+          <ul className="header-menu">
+            <li
+              className="header-menu__item"
+              onClick={this.props.onSwitchUnits('metric')}
+              >
+              METRIC
+            </li>
+            <li
+              className="header-menu__item"
+              onClick={this.props.onSwitchUnits('imperial')}
+              >
+              IMPERIAL
+            </li>
+          </ul>
         </div>
       </header>
     );
