@@ -4,11 +4,13 @@ import classNames from 'classnames';
 
 export default class Header extends Component {
   static propTypes = {
-    onSwitchUnits: PropTypes.func.isRequired
+    onSwitchUnits: PropTypes.func.isRequired,
+    onSwitchTemperatureUnits: PropTypes.func.isRequired
   }
 
   static defaultPropsTypes = {
-    onSwitchUnits: () => {}
+    onSwitchUnits: () => {},
+    onSwitchTemperatureUnits: () => {}
   }
 
   constructor(props, context) {
@@ -54,6 +56,20 @@ export default class Header extends Component {
               onClick={this.props.onSwitchUnits('imperial')}
               >
               IMPERIAL
+            </li>
+          </ul>
+          <ul className="header-menu">
+            <li
+              className="header-menu__item"
+              onClick={this.props.onSwitchTemperatureUnits('c')}
+              >
+              C
+            </li>
+            <li
+              className="header-menu__item"
+              onClick={this.props.onSwitchTemperatureUnits('f')}
+              >
+              F
             </li>
           </ul>
         </div>

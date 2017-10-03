@@ -26,3 +26,10 @@ export function switchUnits(units) {
     dispatch({type: type.SWITCH_UNITS, units});
   };
 }
+
+export function switchTemperatureUnits(temperatureUnits) {
+  // temperatureUnits === 'c' || 'f'
+  return dispatch => {
+    dispatch({type: type.SWITCH_TEMPERATURE_UNITS, temperatureUnits});
+  };
+}

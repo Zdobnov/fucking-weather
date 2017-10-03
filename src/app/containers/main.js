@@ -30,6 +30,7 @@ export class Main extends Component {
 
     this.handleCall = this.handleCall.bind(this);
     this.handleSwitchUnits = this.handleSwitchUnits.bind(this);
+    this.handleSwitchTemperatureUnits = this.handleSwitchTemperatureUnits.bind(this);
   }
 
   handleCall() {
@@ -43,19 +44,27 @@ export class Main extends Component {
     };
   }
 
-  render() {
-    const {units} = this.props.measureUnits;
+  handleSwitchTemperatureUnits(temperatureUnits) {
+    // temperatureUnits === 'c' || 'f'
+    return () => {
+      this.props.actions.switchTemperatureUnits(temperatureUnits);
+    };
+  }
 
+  render() {
     return (
       <div>
         <Header
           onSwitchUnits={this.handleSwitchUnits}
+          onSwitchTemperatureUnits={this.handleSwitchTemperatureUnits}
           />
         <main className="app-main today">
           <section className="weather-today">
             <div className="weather-today__flex--left">
               <Temperature
-                temperature="188"
+                weather={this.props.current}
+                measureUnits={this.props.measureUnits}
+                onSwitchTemperatureUnits={this.handleSwitchTemperatureUnits}
                 />
               <Location
                 location={this.props.location}
@@ -72,7 +81,7 @@ export class Main extends Component {
           </section>
           <Details
             weather={this.props.current}
-            units={units}
+            measureUnits={this.props.measureUnits}
             />
           <Description/>
         </main>
