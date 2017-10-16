@@ -14,20 +14,20 @@ export default class Details extends Component {
 
   renderFeelsLike() {
     return this.props.measureUnits.temperatureUnits === 'c' ?
-      `${this.props.weather.feelslike_c} C` :
-      `${this.props.weather.feelslike_f} F`;
+      `${this.props.weather.feelslikeC} C` :
+      `${this.props.weather.feelslikeF} F`;
   }
 
   renderVisibility() {
     return this.props.measureUnits.units === 'metric' ?
-      `${this.props.weather.vis_km} km` :
-      `${this.props.weather.vis_miles} mi`;
+      `${this.props.weather.visKm} km` :
+      `${this.props.weather.visMiles} mi`;
   }
 
   renderWindSpeed() {
     return this.props.measureUnits.units === 'metric' ?
-      `${this.props.weather.wind_kph} km/h` :
-      `${this.props.weather.wind_mph} mph`;
+      `${this.props.weather.windKph} km/h` :
+      `${this.props.weather.windMph} mph`;
   }
 
   render() {
@@ -35,9 +35,9 @@ export default class Details extends Component {
 
     return (
       <section className="details">
-        <p>Clouds: <span>{weather.cloud}%</span></p>
+        <p>Clouds: <span>{weather.cloud} %</span></p>
         <p>Feels like: <span>{this.renderFeelsLike()}</span></p>
-        <p>Humidity: <span>{weather.humidity}%</span></p>
+        <p>Humidity: <span>{weather.humidity} %</span></p>
         <p>Pressure: <span>pressure_in or pressure_mb</span></p>
         <p>Average visibility: <span>{this.renderVisibility()}</span></p>
         <p>Wind speed: <span>{this.renderWindSpeed()}</span></p>

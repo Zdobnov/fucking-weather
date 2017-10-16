@@ -14,16 +14,16 @@ export default class Temperature extends Component {
     onSwitchTemperatureUnits: () => {}
   }
 
-  renderFeelsLike() {
+  renderTemperature() {
     return this.props.measureUnits.temperatureUnits === 'c' ?
-      `${this.props.weather.temp_c}` :
-      `${this.props.weather.temp_f}`;
+      `${this.props.weather.tempC}` :
+      `${this.props.weather.tempF}`;
   }
 
   render() {
     return (
       <div className="temperature">
-        <div className="temperature__value">{this.renderFeelsLike()}</div>
+        <div className="temperature__value">{this.renderTemperature()}</div>
         <div className="temperature__units">
           <div
             onClick={this.props.onSwitchTemperatureUnits('c')}

@@ -1,5 +1,7 @@
 import axios from 'axios';
+
 import * as type from '../constants/actionTypes';
+import toCamelCase from '../utils/toCamelCase';
 
 export function getCurrentWeather() {
   return async dispatch => {
@@ -7,14 +9,12 @@ export function getCurrentWeather() {
       const key = 'a4244d101b7a43e6987175904171009';
       const link = `http://api.apixu.com/v1/current.json?key=${key}&q=Paris`;
       const response = await axios.get(link);
-      console.log(response.data);
 
       dispatch({
         type: type.UPDATE_CURRENT_WEATHER,
-        data: response.data
+        data: toCamelCase(response.data)
       });
     } catch (error) {
-      // console.log('getCurrentWeather - error');
       throw error;
     }
   };
