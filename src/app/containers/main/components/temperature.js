@@ -16,8 +16,8 @@ export default class Temperature extends Component {
 
   renderTemperature() {
     return this.props.measureUnits.temperatureUnits === 'c' ?
-      `${this.props.weather.tempC}` :
-      `${this.props.weather.tempF}`;
+      `${Math.round(this.props.weather.tempC) || 0}` :
+      `${Math.round(this.props.weather.tempF) || 0}`;
   }
 
   render() {
