@@ -1,30 +1,30 @@
 .weather-today {
   .temperature {
     margin-bottom: 12px;
-    @include flexbox();
+    display: flex;
 
     &__value {
       font-size: 10rem;
       font-weight: $font-weight-thin;
       text-align: center;
       line-height: 7.45rem;
-      @include flex(0, 0, 73%);
+      flex: 0 0 73%;
     }
 
     &__units {
-      @include flexbox();
-      @include flex(1, 1, 27%);
-      @include flex-direction(column);
+      display: flex;
+      flex: 1 1 27%;
+      flex-direction: column;
 
       > * {
         cursor: pointer;
         font-size: 2.4rem;
         font-weight: $font-weight-thin;
         width: 100%;
-        @include flexbox();
-        @include flex(0, 0, 50%);
-        @include align-items(center);
-        @include justify-content(center);
+        display: flex;
+        flex: 0 0 50%;
+        align-items: center;
+        justify-content: center;
 
         sup {
           font-size: 1.4rem;

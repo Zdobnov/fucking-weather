@@ -20,10 +20,10 @@ export function getCurrentWeather() {
   };
 }
 
-// units === 'metric' || 'imperial'
-export function switchUnits(units) {
+// system === 'metric' || 'imperial'
+export function switchSystem(system) {
   return dispatch => {
-    dispatch({type: type.SWITCH_UNITS, units});
+    dispatch({type: type.SWITCH_SYSTEM, system});
   };
 }
 

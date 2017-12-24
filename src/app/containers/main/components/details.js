@@ -33,19 +33,19 @@ export default class Details extends Component {
   }
 
   renderPrecipitation() {
-    return this.props.measureUnits.units === 'metric' ?
+    return this.props.measureUnits.system === 'metric' ?
       `${this.props.weather.precipMm || 0} mm` :
       `${this.props.weather.precipIn || 0} in`;
   }
 
   renderVisibility() {
-    return this.props.measureUnits.units === 'metric' ?
+    return this.props.measureUnits.system === 'metric' ?
       `${this.props.weather.visKm || 0} km` :
       `${this.props.weather.visMiles || 0} mi`;
   }
 
   renderWindSpeed() {
-    return this.props.measureUnits.units === 'metric' ?
+    return this.props.measureUnits.system === 'metric' ?
       `${this.props.weather.windKph || 0} km/h` :
       `${this.props.weather.windMph || 0} mph`;
   }

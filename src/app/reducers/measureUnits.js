@@ -1,21 +1,21 @@
 import {
-  SWITCH_UNITS,
+  SWITCH_SYSTEM,
   SWITCH_TEMPERATURE_UNITS,
   SWITCH_PRESSURE_UNITS
 } from '../constants/actionTypes';
 
 const initialState = {
-  units: 'metric',
+  system: 'metric',
   temperatureUnits: 'c',
   pressureUnits: 'mm'
 };
 
 export default function measureUnits(state = initialState, action = {}) {
   switch (action.type) {
-    case SWITCH_UNITS: {
+    case SWITCH_SYSTEM: {
       return {
         ...state,
-        units: action.units
+        system: action.system
       };
     }
 

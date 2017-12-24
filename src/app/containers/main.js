@@ -29,7 +29,7 @@ export class Main extends Component {
     super(props, context);
 
     this.handleCall = this.handleCall.bind(this);
-    this.handleSwitchUnits = this.handleSwitchUnits.bind(this);
+    this.handleSwitchSystem = this.handleSwitchSystem.bind(this);
     this.handleSwitchTemperatureUnits = this.handleSwitchTemperatureUnits.bind(this);
     this.handleSwitchPressureUnits = this.handleSwitchPressureUnits.bind(this);
   }
@@ -38,10 +38,10 @@ export class Main extends Component {
     this.props.actions.getCurrentWeather();
   }
 
-  // units === 'metric' || 'imperial'
-  handleSwitchUnits(units) {
+  // system === 'metric' || 'imperial'
+  handleSwitchSystem(system) {
     return () => {
-      this.props.actions.switchUnits(units);
+      this.props.actions.switchSystem(system);
     };
   }
 
@@ -63,7 +63,7 @@ export class Main extends Component {
     return (
       <div>
         <Header
-          onSwitchUnits={this.handleSwitchUnits}
+          onSwitchSystem={this.handleSwitchSystem}
           onSwitchTemperatureUnits={this.handleSwitchTemperatureUnits}
           onSwitchPressureUnits={this.handleSwitchPressureUnits}
           />

@@ -28,9 +28,9 @@ body {
   margin: 0 auto;
 
   &.today {
-    @include flexbox();
-    @include flex-direction(column);
-    @include justify-content(space-between);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     min-height: calc(100vh - #{$header-height});
   }
 }

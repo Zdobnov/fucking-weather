@@ -1,4 +1,4 @@
-export const weatherConditions = {
+export const weatherConditions = [
   {
     code: 1000,
     day: "Sunny",
@@ -240,4 +240,4 @@ export const weatherConditions = {
     night: "Moderate or heavy snow with thunder",
     icon: 395
   }
-}
+];

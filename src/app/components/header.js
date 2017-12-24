@@ -1,16 +1,19 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import classNames from 'classnames';
 
-export default class Header extends Component {
+export class Header extends Component {
   static propTypes = {
-    onSwitchUnits: PropTypes.func.isRequired,
+    measureUnits: PropTypes.object.isRequired,
+    onSwitchSystem: PropTypes.func.isRequired,
     onSwitchTemperatureUnits: PropTypes.func.isRequired,
     onSwitchPressureUnits: PropTypes.func.isRequired
   }
 
   static defaultPropsTypes = {
-    onSwitchUnits: () => {},
+    measureUnits: {},
+    onSwitchSystem: () => {},
     onSwitchTemperatureUnits: () => {},
     onSwitchPressureUnits: () => {}
   }
@@ -20,6 +23,33 @@ export default class Header extends Component {
 
     this.state = {
       opened: false
+    };
+
+    this.units = {
+      system: [{
+        id: 'metric',
+        name: 'Metric'
+      }, {
+        id: 'imperial',
+        name: 'Imperial'
+      }],
+      temperature: [{
+        id: 'c',
+        name: 'C'
+      }, {
+        id: 'f',
+        name: 'F'
+      }],
+      pressure: [{
+        id: 'mm',
+        name: 'mmHg'
+      }, {
+        id: 'in',
+        name: 'inHg'
+      }, {
+        id: 'mb',
+        name: 'mBar'
+      }]
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -46,56 +76,65 @@ export default class Header extends Component {
             >
             <span/>
           </div>
-          <ul className="header-menu">
-            <li
-              className="header-menu__item"
-              onClick={this.props.onSwitchUnits('metric')}
-              >
-              METRIC
-            </li>
-            <li
-              className="header-menu__item"
-              onClick={this.props.onSwitchUnits('imperial')}
-              >
-              IMPERIAL
-            </li>
-          </ul>
-          <ul className="header-menu">
-            <li
-              className="header-menu__item"
-              onClick={this.props.onSwitchTemperatureUnits('c')}
-              >
-              C
-            </li>
-            <li
-              className="header-menu__item"
-              onClick={this.props.onSwitchTemperatureUnits('f')}
-              >
-              F
-            </li>
-          </ul>
-          <ul className="header-menu">
-            <li
-              className="header-menu__item"
-              onClick={this.props.onSwitchPressureUnits('mm')}
-              >
-              mmHg
-            </li>
-            <li
-              className="header-menu__item"
-              onClick={this.props.onSwitchPressureUnits('in')}
-              >
-              inHg
-            </li>
-            <li
-              className="header-menu__item"
-              onClick={this.props.onSwitchPressureUnits('mb')}
-              >
-              mBar
-            </li>
-          </ul>
+          <div className="app-header__menu">
+            <h3>Pages</h3>
+            -- link to pages --
+            <h3>Settings</h3>
+            <h6>Measure system</h6>
+            <ul className="app-header__settings">
+              { this.units.system.map(item => (
+                <li
+                  key={item.id}
+                  className={classNames({
+                    active: item.id === this.props.measureUnits.system
+                  })}
+                  onClick={this.props.onSwitchSystem(item.id)}
+                  >
+                  {item.name}
+                </li>
+              ))}
+            </ul>
+            <h6>Temperature units</h6>
+            <ul className="app-header__settings">
+              { this.units.temperature.map(item => (
+                <li
+                  key={item.id}
+                  className={classNames({
+                    active: item.id === this.props.measureUnits.temperatureUnits
+                  })}
+                  onClick={this.props.onSwitchTemperatureUnits(item.id)}
+                  >
+                  {item.name}
+                </li>
+              ))}
+            </ul>
+            <h6>Pressure units</h6>
+            <ul className="app-header__settings">
+              { this.units.pressure.map(item => (
+                <li
+                  key={item.id}
+                  className={classNames({
+                    active: item.id === this.props.measureUnits.pressureUnits
+                  })}
+                  onClick={this.props.onSwitchPressureUnits(item.id)}
+                  >
+                  {item.name}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </header>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    measureUnits: state.measureUnits
+  };
+};
+
+export default connect(
+  mapStateToProps
+)(Header);
