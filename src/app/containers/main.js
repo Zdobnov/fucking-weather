@@ -100,7 +100,6 @@ export class Main extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     current: state.currentWeather.current,
     location: state.currentWeather.location,
