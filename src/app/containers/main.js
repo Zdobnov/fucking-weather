@@ -34,6 +34,22 @@ export class Main extends Component {
     this.handleSwitchPressureUnits = this.handleSwitchPressureUnits.bind(this);
   }
 
+  componentDidMount() {
+    try {
+      this.getPosition()
+        .then(({coords}) => {
+          this.props.actions.getCurrentWeather(coords);
+        })
+        .catch(err => {
+          // request error
+          console.log(err);
+        });
+    } catch (err) {
+      // location error
+      console.log(err);
+    }
+  }
+
   handleCall() {
     this.props.actions.getCurrentWeather();
   }
@@ -59,6 +75,12 @@ export class Main extends Component {
     };
   }
 
+  getPosition() {
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
+  }
+
   render() {
     return (
       <div>
@@ -78,9 +100,6 @@ export class Main extends Component {
               <Location
                 location={this.props.location}
                 />
-              <span
-                onClick={this.handleCall}
-                >ASK FOR WEATHER</span>
             </div>
             <div className="weather-today__flex--right">
               icon

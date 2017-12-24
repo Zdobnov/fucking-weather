@@ -3,11 +3,11 @@ import axios from 'axios';
 import * as type from '../constants/actionTypes';
 import toCamelCase from '../utils/toCamelCase';
 
-export function getCurrentWeather() {
+export function getCurrentWeather({latitude, longitude}) {
   return async dispatch => {
     try {
       const key = 'a4244d101b7a43e6987175904171009';
-      const link = `http://api.apixu.com/v1/current.json?key=${key}&q=Paris`;
+      const link = `http://api.apixu.com/v1/current.json?key=${key}&q=${latitude},${longitude}`;
       const response = await axios.get(link);
 
       dispatch({
