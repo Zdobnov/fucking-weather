@@ -1,11 +1,13 @@
 import {
   SWITCH_UNITS,
-  SWITCH_TEMPERATURE_UNITS
+  SWITCH_TEMPERATURE_UNITS,
+  SWITCH_PRESSURE_UNITS
 } from '../constants/actionTypes';
 
 const initialState = {
   units: 'metric',
-  temperatureUnits: 'c'
+  temperatureUnits: 'c',
+  pressureUnits: 'mm'
 };
 
 export default function measureUnits(state = initialState, action = {}) {
@@ -21,6 +23,13 @@ export default function measureUnits(state = initialState, action = {}) {
       return {
         ...state,
         temperatureUnits: action.temperatureUnits
+      };
+    }
+
+    case SWITCH_PRESSURE_UNITS: {
+      return {
+        ...state,
+        pressureUnits: action.pressureUnits
       };
     }
 

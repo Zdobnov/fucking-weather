@@ -5,12 +5,14 @@ import classNames from 'classnames';
 export default class Header extends Component {
   static propTypes = {
     onSwitchUnits: PropTypes.func.isRequired,
-    onSwitchTemperatureUnits: PropTypes.func.isRequired
+    onSwitchTemperatureUnits: PropTypes.func.isRequired,
+    onSwitchPressureUnits: PropTypes.func.isRequired
   }
 
   static defaultPropsTypes = {
     onSwitchUnits: () => {},
-    onSwitchTemperatureUnits: () => {}
+    onSwitchTemperatureUnits: () => {},
+    onSwitchPressureUnits: () => {}
   }
 
   constructor(props, context) {
@@ -70,6 +72,26 @@ export default class Header extends Component {
               onClick={this.props.onSwitchTemperatureUnits('f')}
               >
               F
+            </li>
+          </ul>
+          <ul className="header-menu">
+            <li
+              className="header-menu__item"
+              onClick={this.props.onSwitchPressureUnits('mm')}
+              >
+              mmHg
+            </li>
+            <li
+              className="header-menu__item"
+              onClick={this.props.onSwitchPressureUnits('in')}
+              >
+              inHg
+            </li>
+            <li
+              className="header-menu__item"
+              onClick={this.props.onSwitchPressureUnits('mb')}
+              >
+              mBar
             </li>
           </ul>
         </div>

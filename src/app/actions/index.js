@@ -20,16 +20,23 @@ export function getCurrentWeather() {
   };
 }
 
+// units === 'metric' || 'imperial'
 export function switchUnits(units) {
-  // units === 'metric' || 'imperial'
   return dispatch => {
     dispatch({type: type.SWITCH_UNITS, units});
   };
 }
 
+// temperatureUnits === 'c' || 'f'
 export function switchTemperatureUnits(temperatureUnits) {
-  // temperatureUnits === 'c' || 'f'
   return dispatch => {
     dispatch({type: type.SWITCH_TEMPERATURE_UNITS, temperatureUnits});
+  };
+}
+
+// pressureUnits === 'mm' || 'in' || 'mb'
+export function switchPressureUnits(pressureUnits) {
+  return dispatch => {
+    dispatch({type: type.SWITCH_PRESSURE_UNITS, pressureUnits});
   };
 }

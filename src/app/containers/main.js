@@ -31,23 +31,31 @@ export class Main extends Component {
     this.handleCall = this.handleCall.bind(this);
     this.handleSwitchUnits = this.handleSwitchUnits.bind(this);
     this.handleSwitchTemperatureUnits = this.handleSwitchTemperatureUnits.bind(this);
+    this.handleSwitchPressureUnits = this.handleSwitchPressureUnits.bind(this);
   }
 
   handleCall() {
     this.props.actions.getCurrentWeather();
   }
 
+  // units === 'metric' || 'imperial'
   handleSwitchUnits(units) {
-    // units === 'metric' || 'imperial'
     return () => {
       this.props.actions.switchUnits(units);
     };
   }
 
+  // temperatureUnits === 'c' || 'f'
   handleSwitchTemperatureUnits(temperatureUnits) {
-    // temperatureUnits === 'c' || 'f'
     return () => {
       this.props.actions.switchTemperatureUnits(temperatureUnits);
+    };
+  }
+
+  // pressureUnits === 'mm' || 'in' || 'mb'
+  handleSwitchPressureUnits(pressureUnits) {
+    return () => {
+      this.props.actions.switchPressureUnits(pressureUnits);
     };
   }
 
@@ -57,6 +65,7 @@ export class Main extends Component {
         <Header
           onSwitchUnits={this.handleSwitchUnits}
           onSwitchTemperatureUnits={this.handleSwitchTemperatureUnits}
+          onSwitchPressureUnits={this.handleSwitchPressureUnits}
           />
         <main className="app-main today">
           <section className="weather-today">

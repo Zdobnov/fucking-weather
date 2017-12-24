@@ -18,6 +18,20 @@ export default class Details extends Component {
       `${Math.round(this.props.weather.feelslikeF) || 0} F`;
   }
 
+  renderPressure() {
+    switch (this.props.measureUnits.pressureUnits) {
+      case 'in': {
+        return `${Math.round(this.props.weather.pressureIn) || 0} inHg`;
+      }
+      case 'mb': {
+        return `${Math.round(this.props.weather.pressureMb) || 0} mBar`;
+      }
+      default: {
+        return `${(Math.round(this.props.weather.pressureIn) || 0) * 25.4} mmHg`;
+      }
+    }
+  }
+
   renderPrecipitation() {
     return this.props.measureUnits.units === 'metric' ?
       `${this.props.weather.precipMm || 0} mm` :
@@ -44,7 +58,7 @@ export default class Details extends Component {
         <p>Clouds: <span>{weather.cloud || 0} %</span></p>
         <p>Feels like: <span>{this.renderFeelsLike()}</span></p>
         <p>Humidity: <span>{weather.humidity || 0} %</span></p>
-        <p>Pressure: <span>pressure_in or pressure_mb</span></p>
+        <p>Pressure: <span>{this.renderPressure()}</span></p>
         <p>Precipitation: <span>{this.renderPrecipitation()}</span></p>
         <p>Average visibility: <span>{this.renderVisibility()}</span></p>
         <p>Wind speed: <span>{this.renderWindSpeed()}</span></p>
