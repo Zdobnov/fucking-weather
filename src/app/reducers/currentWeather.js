@@ -10,7 +10,7 @@ export default function currentWeather(state = initialState, action = {}) {
     case actionTypes.UPDATE_CURRENT_WEATHER: {
       return {
         ...state,
-        current: action.data.current
+        ...action.data
       };
     }
 
