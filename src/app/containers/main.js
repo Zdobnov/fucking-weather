@@ -9,20 +9,14 @@ import Temperature from './main/components/temperature';
 import Location from './main/components/location';
 import Details from './main/components/details';
 import Description from './main/components/description';
+import {weatherConditions} from '../constants/weatherConditions';
 
 export class Main extends Component {
   static propTypes = {
+    actions: PropTypes.object.isRequired,
     current: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
-    actions: PropTypes.object.isRequired,
     measureUnits: PropTypes.object.isRequired
-  }
-
-  static defaultProps = {
-    current: {},
-    location: {},
-    actions: {},
-    measureUnits: {}
   }
 
   constructor(props, context) {
@@ -111,7 +105,9 @@ export class Main extends Component {
             weather={this.props.current}
             measureUnits={this.props.measureUnits}
             />
-          <Description/>
+          <Description
+            condition={weatherConditions[this.props.current.condition.code]}
+            />
         </main>
       </div>
     );

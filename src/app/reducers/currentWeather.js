@@ -1,7 +1,11 @@
 import * as actionTypes from '../constants/actionTypes';
 
 const initialState = {
-  current: {},
+  current: {
+    condition: {
+      code: null
+    }
+  },
   location: {}
 };
 

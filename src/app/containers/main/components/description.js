@@ -1,12 +1,19 @@
 import React, {Component} from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default class Description extends Component {
+  static propTypes = {
+    condition: PropTypes.object.isRequired
+  }
+
+  static defaultProps = {
+    condition: {}
+  }
+
   render() {
     return (
       <section className="description">
-        There are light intensity shower rain & mist, therefore get the fuck out of home for a walk. Don’t forget
-        the fucking umbrella, bustard!
+        {this.props.condition.text || ''}
       </section>
     );
   }
