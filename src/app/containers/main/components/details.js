@@ -52,6 +52,7 @@ export default class Details extends Component {
 
   render() {
     const {weather} = this.props;
+    const style = {transform: `rotate(${this.props.weather.windDegree}deg)`};
 
     return (
       <section className="details">
@@ -62,7 +63,7 @@ export default class Details extends Component {
         <p>Precipitation: <span>{this.renderPrecipitation()}</span></p>
         <p>Average visibility: <span>{this.renderVisibility()}</span></p>
         <p>Wind speed: <span>{this.renderWindSpeed()}</span></p>
-        <p>Wind direction: <span>{this.props.weather.wind_degree}</span></p>
+        <p>Wind direction: <span className="details__wind" style={style}/> <span>{this.props.weather.windDir}</span></p>
       </section>
     );
   }
