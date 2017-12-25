@@ -26,6 +26,10 @@
         align-items: center;
         justify-content: center;
 
+        &.active {
+          font-weight: $font-weight-regular;
+        }
+
         sup {
           font-size: 1.4rem;
           position: relative;
