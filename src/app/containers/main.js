@@ -75,6 +75,14 @@ export class Main extends Component {
     });
   }
 
+  renderIcon() {
+    const condition = weatherConditions[this.props.current.condition.code];
+
+    return (condition && condition.icon) ? (
+      <img src={condition.icon} alt={condition.day}/>
+    ) : null;
+  }
+
   render() {
     return (
       <div>
@@ -96,9 +104,7 @@ export class Main extends Component {
                 />
             </div>
             <div className="weather-today__flex--right">
-              icon
-              --- HERE ---
-              icon
+              {this.renderIcon()}
             </div>
           </section>
           <Details

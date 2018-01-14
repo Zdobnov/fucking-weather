@@ -2,20 +2,21 @@ export const weatherConditions = {
   1000: {
     day: 'Sunny',
     night: 'Clear',
-    icon: 113,
-    text: 'test'
+    icon: './img/Sun.svg',
+    text: `It's sunny outside, so grab your nifty sunglasses, bitch, go outside and show this fucking
+      world how awesome you are!`
   },
   1003: {
     day: 'Partly cloudy',
     night: 'Partly cloudy',
     icon: './img/Cloud-Sun.svg',
-    text: 'test'
+    text: `Today is partly cloudy. Therefore move your lazy ass there immediately and try to enjoy the weather!`
   },
   1006: {
     day: 'Cloudy',
     night: 'Cloudy',
-    icon: 119,
-    text: 'test'
+    icon: './img/Cloud.svg',
+    text: `It looks cloudy, but perfect. The best weather to leave your spot for good shots!`
   },
   1009: {
     day: 'Overcast',
